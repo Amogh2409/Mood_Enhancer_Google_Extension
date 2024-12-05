@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moody - Hate Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: radial-gradient(circle, #2c2c2c, #000);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="h-screen w-screen flex flex-col items-center justify-center font-sans text-gray-100">
+    <!-- Header Section -->
+    <header class="text-center">
+      <h1 class="text-4xl font-bold mb-4 text-red-600">Let It Out 💥</h1>
+      <p class="text-lg text-gray-300">
+        Don't hold back. Express your feelings and lighten the load.
+      </p>
+    </header>
+
+    <!-- Vent Section -->
+    <section
+      class="mt-8 w-full max-w-2xl bg-gray-900 p-6 rounded-lg shadow-lg flex flex-col items-center"
+    >
+      <!-- Vent Title -->
+      <h2 class="text-2xl font-semibold text-red-500 mb-4">
+        Vent Your Hate
+      </h2>
+      <textarea
+        id="hate-message"
+        placeholder="Type out everything that's bothering you..."
+        class="w-full p-4 text-gray-100 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+        rows="5"
+      ></textarea>
+      <button
+        id="vent-button"
+        class="mt-4 bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg shadow-md transition"
+      >
+        Vent 💔
+      </button>
+      <p id="vent-output" class="mt-4 text-sm text-gray-400 hidden">
+        Your message has been saved anonymously.
+      </p>
+    </section>
+
+    <!-- Release Section -->
+    <section class="mt-10 w-full max-w-2xl">
+      <h3 class="text-center text-xl font-semibold text-gray-300 mb-4">
+        Release Your Anger
+      </h3>
+      <div class="flex justify-center gap-4">
+        <button
+          id="smash-button"
+          class="bg-red-700 hover:bg-red-800 text-white py-2 px-6 rounded-lg shadow-md transition"
+        >
+          Smash 💥
+        </button>
+        <button
+          id="shout-button"
+          class="bg-purple-700 hover:bg-purple-800 text-white py-2 px-6 rounded-lg shadow-md transition"
+        >
+          Shout 🔊
+        </button>
+      </div>
+      <div
+        id="release-feedback"
+        class="mt-6 p-4 text-center text-lg font-semibold hidden"
+      >
+        🔥 You just smashed it! 🔥
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      <p>&copy; 2024 VibeShift Inc. - Turning emotions into energy ⚡</p>
+    </footer>
+
+    <script>
+      // Handle vent message submission
+      const ventButton = document.getElementById('vent-button');
+      const ventOutput = document.getElementById('vent-output');
+      ventButton.addEventListener('click', () => {
+        const message = document.getElementById('hate-message').value;
+        if (message.trim()) {
+          ventOutput.classList.remove('hidden');
+          setTimeout(() => {
+            ventOutput.classList.add('hidden');
+          }, 3000);
+        }
+      });
+
+      // Handle release buttons
+      const smashButton = document.getElementById('smash-button');
+      const shoutButton = document.getElementById('shout-button');
+      const releaseFeedback = document.getElementById('release-feedback');
+
+      const showFeedback = (message) => {
+        releaseFeedback.textContent = message;
+        releaseFeedback.classList.remove('hidden');
+        setTimeout(() => {
+          releaseFeedback.classList.add('hidden');
+        }, 3000);
+      };
+
+      smashButton.addEventListener('click', () => {
+        showFeedback('🔥 You just smashed it! 🔥');
+      });
+
+      shoutButton.addEventListener('click', () => {
+        showFeedback('🔊 You shouted it out loud! 🔊');
+      });
+    </script>
+  </body>
+</html>

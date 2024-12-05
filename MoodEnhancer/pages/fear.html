@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Moody</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../js/happyQuotes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-purple-500">
+    <section class="body-font">
+      <div class="container px-16 py-8 mx-auto">
+        <div class="flex flex-wrap flex-col m-4">
+          <div class="flex flex-wrap flex-col">
+            <h2
+              class="text-center lg:text-3xl md:text-2xl font-bold"
+            >
+              Hey, there 👋 Are You Afraid?  <br />
+              What's making you feel that way? We are here to help you feel less afraid :-)
+            </h2>
+            <h3 class="text-center mt-10 text-lg font-medium font-['Arvo']">
+              Why don't you listen to some music or read a joke to get your mind off it.
+            </h3>
+            <h3 class="text-center mt-10 text-lg font-medium font-['Arvo']">
+              Here's a quote for you! Happy reading!!!
+            </h3>
+          </div>
+          <div
+            class="container flex flex-row justify-center gap-4 my-10 font-['Pacifico']"
+          >
+            <button
+              type="button"
+              class="p-3 bg-red-300 rounded text-center border border-gray-500 hover:border-red-400 hover:bg-red-200"
+            >
+              <a href="music.html">Music 🎶</a>
+            </button>
+            
+            <button
+              type="button"
+              class="p-3 bg-red-300 rounded text-center border border-gray-500 hover:border-red-400 hover:bg-red-200"
+            >
+              <a href="cooking.html">Cooking 🍽</a>
+            </button>
+            <button
+              type="button"
+              class="p-3 bg-red-300 rounded text-center border border-gray-500 hover:border-red-400 hover:bg-red-200"
+            >
+              <a href="space.html">Space 🌎</a>
+            </button>
+          </div>
+
+          <div class="flex flex-wrap flex-col items-center">
+            <div class="flex flex-wrap flex-col">
+              <h3 class="text-center text-lg font-medium font-['Arvo']">
+                A Quote for You 😊
+              </h3>
+            </div>
+            <div class="w-full max-w-2xl mt-12">
+              <div class="quote-container relative bg-gradient-to-r from-purple-600 to-purple-400 rounded-lg shadow-lg p-8 border border-gray-200">
+                <!-- Integrated Quote Box -->
+                <div class="block text-center">
+                  <div class="quote-box block__main block__front p-6 rounded-md bg-gradient-to-r from-gray-100 to-gray-300 shadow-inner">
+                    <span class="quote text-gray-800">
+                      <i class="fas fa-2x fa-quote-left text-purple-500"></i>
+                      <span class="text block mt-4 text-xl font-semibold">Quote To be Displayed Here</span>
+                    </span>
+                    <div class="author mt-4 text-lg font-medium text-gray-600">Author to be Displayed Here</div>
+                    <button class="new-quote mt-6 bg-purple-500 hover:bg-purple-600 text-white text-sm font-bold py-2 px-4 rounded-full transition duration-300" onclick="location.reload()">New Quote</button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <p class="text-center mt-6 text-lg font-normal font-['Arvo']">
+            Have a good day
+          </p>
+        </div>
+      </div>
+    </section>
+    <script src="../js/modal.js"></script>
+    <script src="../js/jokes.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moody - Music Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #d8b4fe, #f3e8ff);
+      }
+    </style>
+  </head>
+  <body class="h-screen w-screen flex flex-col justify-center items-center font-sans text-gray-800">
+    <!-- Page Title -->
+    <header class="text-center">
+      <h1 class="text-4xl font-bold mb-4 text-purple-700">Moody 🎵</h1>
+      <p class="text-lg text-gray-600">
+        Let music soothe your soul and make your day brighter 🌟
+      </p>
+    </header>
+
+    <!-- Music Player Section -->
+    <section
+      class="flex flex-col justify-center items-center w-full max-w-3xl bg-white shadow-md rounded-lg p-8 mt-6">
+      <!-- Now Playing -->
+      <h2 class="text-2xl font-semibold text-purple-600 mb-4">Now Playing</h2>
+      <p id="song-title" class="text-lg text-gray-700 mb-6">"Lofi Chill Beats"</p>
+
+      <!-- Music Player -->
+      <audio
+        id="audio-player"
+        class="w-full"
+        controls
+        src="https://www.bensound.com/bensound-music/bensound-goinghigher.mp3"
+      >
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Song Controls -->
+      <div class="flex justify-center gap-4 mt-4">
+        <button
+          id="prev-btn"
+          class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-md shadow transition"
+        >
+          ⏮ Prev
+        </button>
+        <button
+          id="play-btn"
+          class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-md shadow transition"
+        >
+          ▶ Play
+        </button>
+        <button
+          id="next-btn"
+          class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-md shadow transition"
+        >
+          ⏭ Next
+        </button>
+      </div>
+    </section>
+
+    <!-- Song Playlist -->
+    <section class="mt-10 w-full max-w-3xl">
+      <h3 class="text-center text-xl font-semibold text-gray-700 mb-6">
+        Playlist
+      </h3>
+      <ul class="space-y-4">
+        <li
+          class="p-4 bg-purple-50 border border-purple-300 rounded-md shadow hover:bg-purple-100 transition cursor-pointer"
+        >
+          🌟 "Lofi Chill Beats" - Artist A
+        </li>
+        <li
+          class="p-4 bg-purple-50 border border-purple-300 rounded-md shadow hover:bg-purple-100 transition cursor-pointer"
+        >
+          🌟 "Relaxing Piano" - Artist B
+        </li>
+        <li
+          class="p-4 bg-purple-50 border border-purple-300 rounded-md shadow hover:bg-purple-100 transition cursor-pointer"
+        >
+          🌟 "Acoustic Dreams" - Artist C
+        </li>
+        <li
+          class="p-4 bg-purple-50 border border-purple-300 rounded-md shadow hover:bg-purple-100 transition cursor-pointer"
+        >
+          🌟 "Feel Good Vibes" - Artist D
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      <p>Made with ❤️ by VibeShift Team</p>
+      <p>&copy; 2024 VibeShift Inc.</p>
+    </footer>
+
+    <script>
+      // JavaScript for controlling the music player
+      const audioPlayer = document.getElementById('audio-player');
+      const songTitle = document.getElementById('song-title');
+      const playBtn = document.getElementById('play-btn');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      // Playlist array
+      const playlist = [
+        {
+          title: 'Lofi Chill Beats',
+          src: 'https://www.bensound.com/bensound-music/bensound-goinghigher.mp3',
+        },
+        {
+          title: 'Relaxing Piano',
+          src: 'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
+        },
+        {
+          title: 'Acoustic Dreams',
+          src: 'https://www.bensound.com/bensound-music/bensound-sunny.mp3',
+        },
+        {
+          title: 'Feel Good Vibes',
+          src: 'https://www.bensound.com/bensound-music/bensound-energy.mp3',
+        },
+      ];
+
+      let currentIndex = 0;
+
+      // Play current song
+      const playSong = () => {
+        const currentSong = playlist[currentIndex];
+        songTitle.textContent = `"${currentSong.title}"`;
+        audioPlayer.src = currentSong.src;
+        audioPlayer.play();
+      };
+
+      // Play button
+      playBtn.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+          audioPlayer.play();
+          playBtn.textContent = '⏸ Pause';
+        } else {
+          audioPlayer.pause();
+          playBtn.textContent = '▶ Play';
+        }
+      });
+
+      // Previous button
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+        playSong();
+      });
+
+      // Next button
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        playSong();
+      });
+
+      // Auto-play on load
+      window.addEventListener('load', playSong);
+    </script>
+  </body>
+</html>

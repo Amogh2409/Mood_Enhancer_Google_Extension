@@ -1,0 +1,15 @@
+{
+  "name": "Mood Enhancer",
+  "description": "Filtering your home page based on your mood.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "author": "Amogh Saxena",
+  "browser_action": {
+    "16": "moody_logo.png",
+    "24": "moody_logo.png",
+    "32": "moody_logo.png",
+    "default_title": "Have a good day"
+  },
+  "chrome_url_overrides": { "newtab": "index.html" },
+  "permissions": ["activeTab"]
+}
